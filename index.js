@@ -15,13 +15,6 @@ app.post('/calc', (req, res) => {
     const process = spawn('python', ['./revised-simplex.py', totalvar, totalcons, JSON.stringify(objZ), JSON.stringify(matrix), countgreat, type])
     var dataToSend = ""
     process.stdout.on('data', (data)=>{
-    //     // console.log(data.toString())
-        // dataToSend += data.toString()
-    //     console.log(data.toString())
-    //     // res.status(200).json({status : 200, data : dataToSend})
-    //     // res.send({data : data.toString()})
-    //     return res.status(200).json({status : (200), data : data.toString()})
-        // console.log(data.toString())
         dataToSend += data.toString()
     })
     process.stdout.on('close', () => {
